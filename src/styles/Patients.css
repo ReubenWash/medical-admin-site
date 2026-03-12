@@ -1,0 +1,7 @@
+.patients { padding: 0; }
+.empty-msg { padding: 30px; color: #999; text-align: center; font-size: 15px; }
+
+@media (max-width: 768px) {
+  .patients .card-header { flex-direction: column; }
+  .patients .card-actions { width: 100%; flex-wrap: wrap; }
+}

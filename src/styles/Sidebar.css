@@ -1,0 +1,67 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--dark);
+  color: white;
+  padding: 20px 0;
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  z-index: 200;
+  overflow-y: auto;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.12);
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+/* ── Logo ── */
+.logo {
+  padding: 0 20px 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 20px;
+}
+.logo-text { white-space: nowrap; overflow: hidden; }
+.sidebar-logo { width: 34px; height: 34px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+
+/* ── Nav ── */
+.nav-menu { list-style: none; padding: 0; margin: 0; }
+.nav-item  { margin-bottom: 2px; }
+.nav-link  {
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 20px; color: #cbd5e1; text-decoration: none;
+  transition: all 0.2s; cursor: pointer;
+  border-left: 3px solid transparent;
+}
+.nav-icon { font-size: 18px; width: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.nav-text  { font-size: 15px; font-weight: 500; white-space: nowrap; }
+.nav-link:hover { background: rgba(59,130,246,0.1); color: white; }
+.nav-link.active { background: rgba(59,130,246,0.15); color: white; border-left-color: #3b82f6; }
+
+/* ── Toggle Button ── */
+.toggle-btn {
+  margin-left: auto; background: none; border: none;
+  color: rgba(255,255,255,0.6); cursor: pointer; font-size: 18px;
+  flex-shrink: 0; padding: 4px;
+}
+.toggle-btn:hover { color: white; }
+
+/* ── Collapsed ── */
+.sidebar.collapsed { width: 65px; }
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .nav-text { display: none; }
+.sidebar.collapsed .nav-link { justify-content: center; padding: 14px 0; }
+.sidebar.collapsed .logo      { justify-content: center; padding: 0 0 20px; }
+.sidebar.collapsed .toggle-btn { margin-left: 0; }
+
+/* ── Mobile: slide-out drawer ── */
+@media (max-width: 768px) {
+  .sidebar { width: 65px; }
+  .sidebar .logo-text,
+  .sidebar .nav-text  { display: none; }
+  .sidebar .nav-link  { justify-content: center; padding: 14px 0; }
+  .sidebar .logo      { justify-content: center; }
+  .sidebar .toggle-btn { margin-left: 0; }
+  .toggle-btn         { display: none; } /* hide manual toggle on mobile */
+}

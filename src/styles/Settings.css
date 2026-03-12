@@ -1,0 +1,78 @@
+.settings {
+  padding: 25px;
+}
+
+.page-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tabs button {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  background: #f8f9fa;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.tabs button.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* Tab Content */
+.tab-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.tab-panel label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.tab-panel input,
+.tab-panel select {
+  padding: 8px 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  margin-top: 10px;
+}
+
+.save-btn {
+  float: right;
+}

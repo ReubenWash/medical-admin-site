@@ -1,0 +1,38 @@
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid var(--light-gray);
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+  min-width: 150px;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.btn-success {
+  background: var(--secondary);
+  color: white;
+}
+
+.btn-success:hover {
+  background: #0d9488;
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
