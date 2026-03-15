@@ -56,4 +56,19 @@ export const getAvailableSlots = async (doctorId, date) => {
     params: { date }
   })
   return response.data
+
+}
+export const createDoctorSchedule = async (doctorId, data) => {
+  const response = await axiosInstance.post(`/doctors/${doctorId}/schedule/`, data)
+  return response.data
+}
+
+export const updateDoctorSchedule = async (doctorId, scheduleId, data) => {
+  const response = await axiosInstance.patch(`/doctors/${doctorId}/schedule/${scheduleId}/`, data)
+  return response.data
+}
+
+export const deleteDoctorSchedule = async (doctorId, scheduleId) => {
+  const response = await axiosInstance.delete(`/doctors/${doctorId}/schedule/${scheduleId}/`)
+  return response.data
 }

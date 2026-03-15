@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { getDoctors, updateDoctor, deleteDoctor, uploadDoctorPhoto, deleteDoctorPhoto } from '../api/doctors'
+import DoctorScheduleModal from './DoctorScheduleModal'
 import '../styles/Doctors.css'
 
 const Doctors = ({ onAddDoctor, refresh }) => {
   const [doctors, setDoctors]     = useState([])
   const [loading, setLoading]     = useState(true)
   const [search, setSearch]       = useState('')
-  const [uploading, setUploading] = useState(null) // doctor id currently uploading
+  const [uploading, setUploading] = useState(null)
   const [editDoctor, setEditDoctor] = useState(null)
+  const [scheduleDoctor, setScheduleDoctor] = useState(null)
   const fileInputRefs = useRef({})
 
   useEffect(() => { fetchDoctors() }, [refresh])
@@ -61,7 +63,7 @@ const Doctors = ({ onAddDoctor, refresh }) => {
   }
 
   const handleRemovePhoto = async (doctorId) => {
-    if (!window.confirm('Remove this doctor\'s photo?')) return
+    if (!window.confirm("Remove this doctor's photo?")) return
     try {
       await deleteDoctorPhoto(doctorId)
       fetchDoctors()
@@ -242,6 +244,9 @@ const Doctors = ({ onAddDoctor, refresh }) => {
                     <button className="btn btn-outline btn-sm" onClick={() => setEditDoctor({...doctor})}>
                       Edit
                     </button>
+                    <button className="btn btn-primary btn-sm" onClick={() => setScheduleDoctor(doctor)}>
+                      📅 Schedule
+                    </button>
                     <button
                       className={`btn btn-sm ${doctor.status === 'active' ? 'btn-danger' : 'btn-success'}`}
                       onClick={() => toggleStatus(doctor)}
@@ -257,6 +262,12 @@ const Doctors = ({ onAddDoctor, refresh }) => {
           )}
         </div>
       </div>
+
+      <DoctorScheduleModal
+        isOpen={!!scheduleDoctor}
+        onClose={() => setScheduleDoctor(null)}
+        doctor={scheduleDoctor}
+      />
     </div>
   )
 }
